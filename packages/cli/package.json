@@ -1,0 +1,39 @@
+{
+  "name": "@aps-beam-notify/cli",
+  "version": "0.1.0",
+  "description": "A command line tool to monitor Argonne National Lab APS Beam status",
+  "keywords": [
+    "aps-beam-notify"
+  ],
+  "author": "Brandon Phillips <bericp1@gmail.com>",
+  "homepage": "https://github.com/bericp1/aps-beam-notify#readme",
+  "license": "MIT",
+  "main": "./dist/index.mjs",
+  "exports": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "bin": {
+    "aps-beam-notify": "./dist/index.mjs"
+  },
+  "files": [
+    "README.md",
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bericp1/aps-beam-notify.git",
+    "directory": "packages/cli"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "tsc --build"
+  },
+  "bugs": {
+    "url": "https://github.com/bericp1/aps-beam-notify/issues"
+  },
+  "dependencies": {
+    "@aps-beam-notify/core": "0.1.0"
+  },
+  "engines": {
+    "node": ">=12.22.0"
+  }
+}

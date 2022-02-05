@@ -1,0 +1,45 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "noEmit": true,
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "incremental": true,
+
+    "lib": ["es2021"],
+    "module": "nodenext",
+    "target": "es2021",
+
+    "strict": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "preserveConstEnums": true,
+    "removeComments": false,
+    "sourceMap": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@aps-beam-notify/core": ["packages/core/src"],
+      "@aps-beam-notify/cli": ["packages/cli/src"]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "references": [
+    {
+      "path": "./packages/cli"
+    },
+    {
+      "path": "./packages/core"
+    }
+  ]
+}

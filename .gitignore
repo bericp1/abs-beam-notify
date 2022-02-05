@@ -1,0 +1,16 @@
+# Deps
+node_modules/
+
+# Logs
+lerna-debug.log
+npm-debug.log
+
+# IDEs
+.idea
+.vscode
+
+# Build output
+packages/*/dist
+
+# Incremental cache
+*.tsbuildinfo

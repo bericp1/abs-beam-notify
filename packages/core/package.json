@@ -1,0 +1,33 @@
+{
+  "name": "@aps-beam-notify/core",
+  "version": "0.1.0",
+  "description": "Core logic for Argonne National Lab APS Beam status monitoring",
+  "keywords": [
+    "aps-beam-notify"
+  ],
+  "author": "Brandon Phillips <bericp1@gmail.com>",
+  "homepage": "https://github.com/bericp1/aps-beam-notify#readme",
+  "license": "MIT",
+  "main": "./dist/index.mjs",
+  "exports": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "files": [
+    "README.md",
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bericp1/aps-beam-notify.git",
+    "directory": "packages/core"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "tsc --build"
+  },
+  "bugs": {
+    "url": "https://github.com/bericp1/aps-beam-notify/issues"
+  },
+  "engines": {
+    "node": ">=12.22.0"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "root",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "lerna run --parallel build"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.15",
+    "lerna": "^4.0.0",
+    "typescript": "^4.6.0-dev.20220205"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
