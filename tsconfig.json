@@ -8,7 +8,8 @@
     "incremental": true,
 
     "lib": ["es2021"],
-    "module": "nodenext",
+    "module": "es2020",
+    "moduleResolution": "node",
     "target": "es2021",
 
     "strict": true,

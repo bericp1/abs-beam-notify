@@ -8,11 +8,12 @@
   "author": "Brandon Phillips <bericp1@gmail.com>",
   "homepage": "https://github.com/bericp1/aps-beam-notify#readme",
   "license": "MIT",
-  "main": "./dist/index.mjs",
-  "exports": "./dist/index.mjs",
-  "types": "./dist/index.d.mts",
+  "type": "module",
+  "main": "./dist/index.js",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "bin": {
-    "aps-beam-notify": "./dist/index.mjs"
+    "aps-beam-notify": "./dist/index.js"
   },
   "files": [
     "README.md",
@@ -25,19 +26,21 @@
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
-    "build": "yarn run clean && tsc --build",
+    "build": "tsc --build",
     "clean": "shx rm -rf dist *.tsbuildinfo"
   },
   "bugs": {
     "url": "https://github.com/bericp1/aps-beam-notify/issues"
   },
   "dependencies": {
-    "@aps-beam-notify/core": "0.1.0"
+    "@aps-beam-notify/core": "0.1.0",
+    "signale": "^1.4.0"
   },
   "engines": {
-    "node": ">=12.22.0"
+    "node": ">=15.0.0"
   },
   "devDependencies": {
+    "@types/signale": "^1.4.4",
     "shx": "^0.3.4"
   }
 }

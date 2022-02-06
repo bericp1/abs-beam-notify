@@ -1,16 +1,12 @@
 {
-  "extends": [
-    "airbnb-base",
-    "airbnb-typescript/base"
-  ],
+  "extends": ["airbnb-base", "airbnb-typescript/base"],
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "project": "./packages/**/tsconfig.json"
   },
   "settings": {
     "import/resolver": {
       "typescript": {
-        "alwaysTryTypes": true,
-        "project": "./tsconfig.json"
+        "alwaysTryTypes": true
       },
       "node": false
     },
@@ -39,7 +35,18 @@
     ]
   },
   "rules": {
-    "import/extensions": ["error", "ignorePackages"],
-    "import/prefer-default-export": "off"
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never",
+        "js": "never",
+        "jsx": "never"
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "max-classes-per-file": "off",
+    "max-len": "off"
   }
 }
