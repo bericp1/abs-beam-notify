@@ -31,9 +31,7 @@
       "@aps-beam-notify/cli": ["packages/cli/src"]
     }
   },
-  "exclude": [
-    "node_modules"
-  ],
+  "exclude": ["node_modules"],
   "references": [
     {
       "path": "./packages/cli"

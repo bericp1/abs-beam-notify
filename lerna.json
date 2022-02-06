@@ -1,11 +1,7 @@
 {
-  "packages": [
-    "packages/*"
-  ],
+  "packages": ["packages/*"],
   "version": "0.1.0",
   "npmClient": "yarn",
-  "npmClientArgs": [
-    "--pure-lockfile"
-  ],
+  "npmClientArgs": ["--pure-lockfile"],
   "useWorkspaces": true
 }
