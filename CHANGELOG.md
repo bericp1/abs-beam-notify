@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.3](https://github.com/bericp1/aps-beam-notify/compare/v0.2.2...v0.2.3) (2022-02-06)
+
+### Bug Fixes
+
+- **cli:** ensure CLI bin actually works ([f089ec3](https://github.com/bericp1/aps-beam-notify/commit/f089ec34021b14a166f02ba57cd81ef0fdde8f1b))
+
 ## [0.2.2](https://github.com/bericp1/aps-beam-notify/compare/v0.2.1...v0.2.2) (2022-02-06)
 
 **Note:** Version bump only for package @aps-beam-notify/root
