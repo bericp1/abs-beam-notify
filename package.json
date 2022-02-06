@@ -1,5 +1,6 @@
 {
-  "name": "root",
+  "name": "@aps-beam-notify/root",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "build": "lerna run build",

@@ -15,6 +15,9 @@
   "bin": {
     "aps-beam-notify": "./dist/index.js"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "README.md",
     "dist"
