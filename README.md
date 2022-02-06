@@ -21,9 +21,9 @@ when it changes:
 - Install Node >=15
 - Install lerna using `npm install -g lerna`
 - Run `yarn` to install dependencies
-- Run `lerna build` to build the packages
+- Run `lerna run build` to build the packages
 - Run `export SLACK_WEBHOOK_URL="your-url-here"` (replacing "your-url-here" with your Slack Incoming Webhook URL)
-- Run `node ./packages/cli/dist/index.js`
+- Run `yarn run aps-beam-notify`
 
 You'll see something like the following:
 
