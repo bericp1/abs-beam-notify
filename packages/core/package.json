@@ -1,6 +1,6 @@
 {
   "name": "@aps-beam-notify/core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Core logic for Argonne National Lab APS Beam status monitoring",
   "keywords": [
     "aps-beam-notify"
