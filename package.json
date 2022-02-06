@@ -7,7 +7,8 @@
     "pretty": "prettier --write .",
     "lint:base": "npx eslint --ext '.js,.ts,.tsx,.mjs,.mts,.cjs,.cts'",
     "lint": "yarn run lint:base .",
-    "lint:fix": "yarn run lint . --fix"
+    "lint:fix": "yarn run lint . --fix",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@types/node": "^17.0.15",
@@ -18,11 +19,17 @@
     "eslint-config-airbnb-typescript": "^16.1.0",
     "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-import": "^2.25.4",
+    "husky": ">=6",
     "lerna": "^4.0.0",
+    "lint-staged": ">=10",
     "prettier": "^2.5.1",
     "typescript": "^4.6.0-dev.20220205"
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "lint-staged": {
+    "*.{js,mjs,cjs,ts,tsx,mts,cts}": "yarn run lint:base --cache --fix",
+    "*.{js,mjs,cjs,ts,tsx,mts,cts,css,md,json}": "prettier --write"
+  }
 }
