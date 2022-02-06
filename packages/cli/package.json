@@ -25,7 +25,8 @@
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
-    "build": "tsc --build"
+    "build": "yarn run clean && tsc --build",
+    "clean": "shx rm -rf dist *.tsbuildinfo"
   },
   "bugs": {
     "url": "https://github.com/bericp1/aps-beam-notify/issues"
@@ -35,5 +36,8 @@
   },
   "engines": {
     "node": ">=12.22.0"
+  },
+  "devDependencies": {
+    "shx": "^0.3.4"
   }
 }

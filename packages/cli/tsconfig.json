@@ -5,6 +5,5 @@
     "baseUrl": ".",
     "outDir": "dist",
     "rootDir": "src"
-  },
-  "exclude": ["dist"]
+  }
 }
