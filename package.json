@@ -6,7 +6,7 @@
     "build": "lerna run build",
     "clean": "lerna run clean",
     "pretty": "prettier --write .",
-    "lint:base": "npx eslint --ext '.js,.ts,.tsx,.mjs,.mts,.cjs,.cts'",
+    "lint:base": "npx eslint --ext '.js,.ts,.tsx,.mjs,.mts,.cjs,.cts' --cache --cache-file node_modules/.eslintcache",
     "lint": "yarn run lint:base .",
     "lint:fix": "yarn run lint . --fix",
     "prepare": "husky install",
@@ -34,7 +34,7 @@
     "packages/*"
   ],
   "lint-staged": {
-    "*.{js,mjs,cjs,ts,tsx,mts,cts}": "yarn run lint:base --cache --fix",
+    "*.{js,mjs,cjs,ts,tsx,mts,cts}": "yarn run lint:base --fix",
     "*.{js,mjs,cjs,ts,tsx,mts,cts,css,md,json}": "prettier --write"
   }
 }
