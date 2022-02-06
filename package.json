@@ -4,10 +4,20 @@
   "type": "module",
   "scripts": {
     "build": "lerna run build",
-    "pretty": "prettier --write ."
+    "pretty": "prettier --write .",
+    "lint:base": "npx eslint --ext '.js,.ts,.tsx,.mjs,.mts,.cjs,.cts'",
+    "lint": "yarn run lint:base .",
+    "lint:fix": "yarn run lint . --fix"
   },
   "devDependencies": {
     "@types/node": "^17.0.15",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.8.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^16.1.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.4",
     "lerna": "^4.0.0",
     "prettier": "^2.5.1",
     "typescript": "^4.6.0-dev.20220205"

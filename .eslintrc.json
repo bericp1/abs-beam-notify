@@ -1,0 +1,45 @@
+{
+  "extends": [
+    "airbnb-base",
+    "airbnb-typescript/base"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
+      },
+      "node": false
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [
+        ".ts",
+        ".tsx",
+        ".d.ts",
+        ".mts",
+        ".d.mts",
+        ".cts",
+        ".d.cts"
+      ]
+    },
+    "import/extensions": [
+      ".js",
+      ".mjs",
+      ".jsx",
+      ".ts",
+      ".d.ts",
+      ".tsx",
+      ".mts",
+      ".d.mts",
+      ".cts",
+      ".d.cts"
+    ]
+  },
+  "rules": {
+    "import/extensions": ["error", "ignorePackages"],
+    "import/prefer-default-export": "off"
+  }
+}
