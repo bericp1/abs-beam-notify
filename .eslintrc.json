@@ -1,26 +1,6 @@
 {
-  "extends": ["airbnb-base", "airbnb-typescript/base"],
-  "parserOptions": {
-    "project": "./packages/**/tsconfig.json"
-  },
+  "extends": ["airbnb-base"],
   "settings": {
-    "import/resolver": {
-      "typescript": {
-        "alwaysTryTypes": true
-      },
-      "node": false
-    },
-    "import/parsers": {
-      "@typescript-eslint/parser": [
-        ".ts",
-        ".tsx",
-        ".d.ts",
-        ".mts",
-        ".d.mts",
-        ".cts",
-        ".d.cts"
-      ]
-    },
     "import/extensions": [
       ".js",
       ".mjs",
@@ -48,5 +28,50 @@
     "import/prefer-default-export": "off",
     "max-classes-per-file": "off",
     "max-len": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],
+      "extends": ["airbnb-base", "airbnb-typescript/base"],
+      "parserOptions": {
+        "project": "./packages/**/tsconfig.json"
+      },
+      "settings": {
+        "import/resolver": {
+          "typescript": {
+            "alwaysTryTypes": true
+          },
+          "node": false
+        },
+        "import/parsers": {
+          "@typescript-eslint/parser": [
+            ".ts",
+            ".tsx",
+            ".d.ts",
+            ".mts",
+            ".d.mts",
+            ".cts",
+            ".d.cts"
+          ]
+        },
+        "import/extensions": [
+          ".js",
+          ".mjs",
+          ".jsx",
+          ".ts",
+          ".d.ts",
+          ".tsx",
+          ".mts",
+          ".d.mts",
+          ".cts",
+          ".d.cts"
+        ]
+      },
+      "rules": {
+        "import/prefer-default-export": "off",
+        "max-classes-per-file": "off",
+        "max-len": "off"
+      }
+    }
+  ]
 }
