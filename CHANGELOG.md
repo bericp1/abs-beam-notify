@@ -1,15 +1,6 @@
-# Change Log
-
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-
 ## [0.2.1](https://github.com/bericp1/aps-beam-notify/compare/v0.2.0...v0.2.1) (2022-02-06)
 
-**Note:** Version bump only for package @aps-beam-notify/root
-
-# [0.0.0](https://github.com/bericp1/aps-beam-notify/compare/v0.2.0...v0.0.0) (2022-02-06)
-
-No public releases.
+Version bump for testing.
 
 # [0.2.0](https://github.com/bericp1/aps-beam-notify/compare/17d2bcd0b2c3d02dafdc43c8b11c2cc2ee132244...v0.2.0) (2022-02-06)
 
