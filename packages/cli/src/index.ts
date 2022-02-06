@@ -11,7 +11,7 @@ signale.config({
 });
 
 // TODO Advanced CLI arg parsing
-async function run() {
+export async function run() {
   const slackWebhookUrl = process.env.SLACK_WEBHOOK_URL;
   if (!slackWebhookUrl) {
     throw new Error(
@@ -54,7 +54,3 @@ async function run() {
   });
   emitter.start();
 }
-
-run().catch((error: Error) => {
-  signale.error('Failed to initialize.', error);
-});

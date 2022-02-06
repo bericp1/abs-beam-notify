@@ -13,14 +13,15 @@
   "exports": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "aps-beam-notify": "./dist/index.js"
+    "aps-beam-notify": "./bin/run.js"
   },
   "publishConfig": {
     "access": "public"
   },
   "files": [
     "README.md",
-    "dist"
+    "dist",
+    "bin"
   ],
   "repository": {
     "type": "git",
