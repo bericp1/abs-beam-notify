@@ -28,3 +28,5 @@ when it changes:
 You'll see something like the following:
 
 ![](https://d.pr/i/rOKGTu.png)
+
+![](https://d.pr/i/2eUVJk.png)
