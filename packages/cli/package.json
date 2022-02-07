@@ -1,6 +1,6 @@
 {
   "name": "@aps-beam-notify/cli",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "A command line tool to monitor Argonne National Lab APS Beam status",
   "keywords": [
     "aps-beam-notify"
