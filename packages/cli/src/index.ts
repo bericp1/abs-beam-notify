@@ -12,20 +12,21 @@ signale.config({
 
 // TODO Advanced CLI arg parsing
 export async function run() {
-  const slackWebhookUrl = process.env.SLACK_WEBHOOK_URL;
-  if (!slackWebhookUrl) {
+  const rawSlackWebhookUrl = `${process.env.SLACK_WEBHOOK_URL || ''}`.trim();
+  const slackWebhookUrls = rawSlackWebhookUrl
+    .split(',')
+    .map((url) => url.trim());
+  if (!slackWebhookUrls.length) {
     throw new Error(
-      'Please provide a slack webhook URL via the SLACK_WEBHOOK_URL environment variable.',
+      'Please provide a slack webhook URL (or multiple, comma separated) via the SLACK_WEBHOOK_URL environment variable.',
     );
   }
   const manager = new APSBeamDetailsChangeNotifierManager({
     watching: ['operationStatus'],
-    notificationConfigs: [
-      {
-        type: APSBeamDetailsChangeNotificationType.SlackIncomingWebhook,
-        url: slackWebhookUrl,
-      },
-    ],
+    notificationConfigs: slackWebhookUrls.map((url) => ({
+      type: APSBeamDetailsChangeNotificationType.SlackIncomingWebhook,
+      url,
+    })),
     onNotificationSendStarted: ({ oldDetails, newDetails }) => {
       signale.info(
         `Status changed from "${oldDetails.operationStatus}" to "${newDetails.operationStatus}". Sending notification(s)...`,
