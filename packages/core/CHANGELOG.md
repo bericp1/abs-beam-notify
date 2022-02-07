@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/bericp1/aps-beam-notify/compare/v0.2.3...v0.3.0) (2022-02-07)
+
+### Features
+
+- **core:** full breaking refactor of core to support watching all APS Beam details ([56ddef3](https://github.com/bericp1/aps-beam-notify/commit/56ddef3bf6159bf26650e77258fa91f6762e9d50))
+
+### BREAKING CHANGES
+
+- **core:** The vast majority of the public API changed as part of this refactor.
+
 ## [0.2.3](https://github.com/bericp1/aps-beam-notify/compare/v0.2.2...v0.2.3) (2022-02-06)
 
 **Note:** Version bump only for package @aps-beam-notify/core

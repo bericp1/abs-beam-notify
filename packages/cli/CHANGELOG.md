@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/bericp1/aps-beam-notify/compare/v0.2.3...v0.3.0) (2022-02-07)
+
+### Features
+
+- **cli:** bring the CLI up to date with the core refactor and use the NotificationManager ([fbb1bb1](https://github.com/bericp1/aps-beam-notify/commit/fbb1bb14d462600b47124b8c154a4bbdb5792208))
+
+### BREAKING CHANGES
+
+- **cli:** the notifications that the CLI sends are way different now, richer
+
 ## [0.2.3](https://github.com/bericp1/aps-beam-notify/compare/v0.2.2...v0.2.3) (2022-02-06)
 
 ### Bug Fixes
