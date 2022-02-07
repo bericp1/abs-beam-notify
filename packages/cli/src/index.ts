@@ -1,7 +1,7 @@
 import {
-  createAPSBeamStatusEmitter,
-  createAPSBeamStatusNotifier,
-  APSBeamNotificationChannel,
+  APSBeamDetails,
+  APSBeamDetailsChangeNotificationType,
+  APSBeamDetailsChangeNotifierManager,
 } from '@aps-beam-notify/core';
 import signale from 'signale';
 
@@ -18,39 +18,42 @@ export async function run() {
       'Please provide a slack webhook URL via the SLACK_WEBHOOK_URL environment variable.',
     );
   }
-  const notify = createAPSBeamStatusNotifier({
-    type: APSBeamNotificationChannel.SlackIncomingWebhook,
-    url: slackWebhookUrl,
+  const manager = new APSBeamDetailsChangeNotifierManager({
+    watching: ['operationStatus'],
+    notificationConfigs: [
+      {
+        type: APSBeamDetailsChangeNotificationType.SlackIncomingWebhook,
+        url: slackWebhookUrl,
+      },
+    ],
+    onNotificationSendStarted: ({ oldDetails, newDetails }) => {
+      signale.info(
+        `Status changed from "${oldDetails.operationStatus}" to "${newDetails.operationStatus}". Sending notification(s)...`,
+      );
+    },
+    onNotificationSendCompleted: () => {
+      signale.success('Notifications sent successfully!');
+    },
+    onNotificationSendFailed: (error) => {
+      signale.error('Failed to send notification.', error);
+    },
   });
-  const emitter = createAPSBeamStatusEmitter();
   signale.start('Initializing beam status notifier...');
-  emitter.on('error', (error) => {
+  manager.on('error', (error) => {
     signale.error(
       'An error occurred fetching the beam status. Will try again next time.',
       error,
     );
   });
-  emitter.once('status', (initialStatus) => {
+  manager.once('details', (initialDetails: APSBeamDetails) => {
     signale.success(
-      `Initial beam status is "${initialStatus}".`
-        + ` Checking every ${emitter.options.interval / 1000} seconds.`
+      `Initial beam status is "${initialDetails.operationStatus}".`
+        + ` Checking every ${manager.options.interval / 1000} seconds.`
         + ' Will send a slack notification when it changes.',
     );
-    emitter.on('status', (status) => {
-      signale.note(`Status is still "${status}"`);
-    });
-    emitter.on('statusChanged', (oldStatus, newStatus) => {
-      signale.success(
-        `Status changed from "${oldStatus}" to "${newStatus}". Sending notification...`,
-      );
-      notify(oldStatus, newStatus)
-        .then(() => {
-          signale.success('Notification sent successfully!');
-        })
-        .catch((error: Error) => {
-          signale.error('Failed to send notification', error);
-        });
+    manager.on('details', (details: APSBeamDetails) => {
+      signale.note(`Status is still "${details.operationStatus}"`);
     });
   });
-  emitter.start();
+  manager.start();
 }
