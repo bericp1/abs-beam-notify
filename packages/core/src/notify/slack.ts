@@ -81,6 +81,34 @@ export const defaultBuildSlackIncomingWebhookRequestOptions: WebhookNotification
       }),
     ];
 
+  const unchangedDetails = (
+    Object.keys(oldDetails) as (keyof APSBeamDetails)[]
+  ).filter(
+    (detail) => !changedDetails.includes(detail)
+        && detail !== 'historyPlotPNGSrc'
+        && newDetails[detail],
+  );
+
+  const unchangedSectionsAndHeading = !unchangedDetails.length
+    ? []
+    : [
+      {
+        type: 'header',
+        text: { type: 'plain_text', text: 'Everything else' },
+      },
+      {
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: `- ${unchangedDetails
+            .map(
+              (detail) => `*${APS_BEAM_DETAIL_LABELS[detail]}* is \`${newDetails[detail]}\``,
+            )
+            .join('\n- ')}`,
+        },
+      },
+    ];
+
   const imageBlocks = newDetails.historyPlotPNGSrc
     ? [
       {
@@ -104,6 +132,7 @@ export const defaultBuildSlackIncomingWebhookRequestOptions: WebhookNotification
         { type: 'header', text: { type: 'plain_text', text: heading } },
         ...mainChangesSections,
         ...secondaryChangesSectionsAndHeading,
+        ...unchangedSectionsAndHeading,
         ...imageBlocks,
       ],
     }),
