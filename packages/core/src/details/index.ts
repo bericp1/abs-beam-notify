@@ -1,14 +1,15 @@
 import {
-  APSStatusPageDownloadOptions,
+  DownloadAPSStatusPageOptions,
   downloadAPSStatusPageAsHTML,
 } from './download.js';
-import { parseBeamDetailsFromAPSStatusPageHTML } from './html.js';
+import { parseAPSBeamDetailsFromStatusPageHTML } from './html.js';
+import { APSBeamDetails } from './common.js';
 
-export type GetCurrentAPSBeamDetailsOptions = APSStatusPageDownloadOptions;
+export type GetCurrentAPSBeamDetailsOptions = DownloadAPSStatusPageOptions;
 
 export async function getCurrentAPSBeamDetails(
   options: GetCurrentAPSBeamDetailsOptions = {},
-): Promise<Map<string, string>> {
+): Promise<APSBeamDetails> {
   const html = await downloadAPSStatusPageAsHTML(options);
-  return parseBeamDetailsFromAPSStatusPageHTML(html);
+  return parseAPSBeamDetailsFromStatusPageHTML(html);
 }

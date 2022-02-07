@@ -1,39 +1,63 @@
-import { APSBeamNotificationChannel, APSBeamStatusNotifier } from './common.js';
 import {
-  createNotifierForIncomingSlackWebhook,
+  APSBeamDetailsChangeNotificationType,
+  APSBeamDetailsChangeNotifier,
+} from './common.js';
+import {
+  createWebhookAPSBeamDetailsChangeNotifier,
+  WebhookNotificationConfig,
+} from './webhook.js';
+import {
+  createSlackIncomingWebhookAPSBeamDetailsChangeNotifier,
   SlackIncomingWebhookNotificationConfig,
 } from './slack.js';
 
-export type NotificationConfig = SlackIncomingWebhookNotificationConfig;
+export type APSBeamDetailsChangeNotificationConfig =
+  | WebhookNotificationConfig
+  | SlackIncomingWebhookNotificationConfig;
 
-export class UnknownNotificationTypeError extends Error {
-  type: string;
+export class InvalidAPSBeamDetailsChangeNotificationConfig extends Error {
+  notificationConfig: object | undefined;
 
-  constructor({ type }: { type: string }) {
-    super('The provided type of notification is unknown.');
-    Object.setPrototypeOf(this, UnknownNotificationTypeError.prototype);
-    this.type = type;
+  constructor({
+    notificationConfig,
+  }: {
+    notificationConfig?: object | undefined;
+  }) {
+    super("The provided notification config's type could not be determined.");
+    Object.setPrototypeOf(
+      this,
+      InvalidAPSBeamDetailsChangeNotificationConfig.prototype,
+    );
+    this.notificationConfig = notificationConfig;
   }
 }
 
 export function createAPSBeamStatusNotifier(
-  notificationConfig: NotificationConfig,
-): APSBeamStatusNotifier {
+  notificationConfig: APSBeamDetailsChangeNotificationConfig,
+): APSBeamDetailsChangeNotifier {
   if (
-    notificationConfig.type === APSBeamNotificationChannel.SlackIncomingWebhook
+    notificationConfig.type === APSBeamDetailsChangeNotificationType.Webhook
   ) {
-    return createNotifierForIncomingSlackWebhook(notificationConfig);
+    return createWebhookAPSBeamDetailsChangeNotifier(notificationConfig);
   }
-  throw new UnknownNotificationTypeError({ type: notificationConfig.type });
+  if (
+    notificationConfig.type
+    === APSBeamDetailsChangeNotificationType.SlackIncomingWebhook
+  ) {
+    return createSlackIncomingWebhookAPSBeamDetailsChangeNotifier(
+      notificationConfig,
+    );
+  }
+  throw new InvalidAPSBeamDetailsChangeNotificationConfig({
+    notificationConfig,
+  });
 }
 
 export function createAPSSBeamStatusNotifierForManyConfigs(
-  notificationConfigs: NotificationConfig[],
-): APSBeamStatusNotifier {
+  notificationConfigs: APSBeamDetailsChangeNotificationConfig[],
+): APSBeamDetailsChangeNotifier {
   const notifiers = notificationConfigs.map((notificationConfig) => createAPSBeamStatusNotifier(notificationConfig));
-  return async (oldStatus, newStatus) => {
-    await Promise.all(
-      notifiers.map((notifier) => notifier(oldStatus, newStatus)),
-    );
+  return async (...args) => {
+    await Promise.all(notifiers.map((notifier) => notifier(...args)));
   };
 }
