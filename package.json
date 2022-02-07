@@ -10,7 +10,7 @@
     "lint": "yarn run lint:base .",
     "lint:fix": "yarn run lint . --fix",
     "prepare": "husky install",
-    "release": "lerna publish --conventional-commits --create-release github"
+    "release": "yarn run clean && yarn run build && lerna publish --conventional-commits --create-release github"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.1.0",
