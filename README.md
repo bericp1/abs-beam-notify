@@ -11,19 +11,14 @@ You may also be looking for the legacy version of this, which was a simple scrip
 
 https://github.com/bericp1/aps-beam-notify-legacy
 
-## Quick start
+## Quick start w/ the CLI
 
-**Note:** Soon, this will be published as an npm package and you'll be able to simply run `npx aps-beam-notify`!
+Ensure you have [Node >=15 installed](https://nodejs.org/en/download/) and then simply run:
 
-To run the command line tool that simply monitors the beam status and sends slack notifications
-when it changes:
-
-- Install Node >=15
-- Install lerna using `npm install -g lerna`
-- Run `yarn` to install dependencies
-- Run `lerna run build` to build the packages
-- Run `export SLACK_WEBHOOK_URL="your-url-here"` (replacing "your-url-here" with your Slack Incoming Webhook URL)
-- Run `yarn run aps-beam-notify`
+```bash
+export SLACK_WEBHOOK_URL="your-slack-webhook-url" # Replace your-slack-webhook-url appropriately
+npx --package=@aps-beam-notify/cli@latest aps-beam-notify
+```
 
 You'll see something like the following:
 
