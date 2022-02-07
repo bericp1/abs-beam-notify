@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/bericp1/aps-beam-notify/compare/v0.3.0...v0.4.0) (2022-02-07)
+
+### Features
+
+- **cli:** support multiple slack webhook urls ([36a04f2](https://github.com/bericp1/aps-beam-notify/commit/36a04f2cb6a04ba761ba3c637274cc012f6d2f5d))
+
 # [0.3.0](https://github.com/bericp1/aps-beam-notify/compare/v0.2.3...v0.3.0) (2022-02-07)
 
 ### Features
