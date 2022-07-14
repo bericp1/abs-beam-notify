@@ -119,7 +119,7 @@ export const defaultBuildSlackIncomingWebhookRequestOptions: WebhookNotification
         },
         image_url: newDetails.historyPlotPNGSrc,
         alt_text:
-              'A plot depciting the prevoius 24 hours of the status of the APS Storage Ring.',
+              'A plot depicting the previous 24 hours of the status of the APS Storage Ring.',
       },
     ]
     : [];

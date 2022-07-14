@@ -5,6 +5,7 @@
   "scripts": {
     "build": "lerna run build",
     "clean": "lerna run clean",
+    "dev": "yarn run clean && yarn run build && lerna run dev --parallel --stream",
     "pretty": "prettier --write .",
     "lint:base": "npx eslint --ext '.js,.ts,.tsx,.mjs,.mts,.cjs,.cts' --cache --cache-file node_modules/.eslintcache",
     "lint": "yarn run lint:base .",
@@ -28,7 +29,7 @@
     "lerna": "^4.0.0",
     "lint-staged": ">=10",
     "prettier": "^2.5.1",
-    "typescript": "^4.6.0-dev.20220205"
+    "typescript": "^4.7.4"
   },
   "workspaces": [
     "packages/*"

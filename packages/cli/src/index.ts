@@ -21,7 +21,16 @@ export async function run() {
       'Please provide a slack webhook URL (or multiple, comma separated) via the SLACK_WEBHOOK_URL environment variable.',
     );
   }
+  const s3LocationForImages = `${
+    process.env.S3_LOCATION_FOR_IMAGES || ''
+  }`.trim();
+  if (s3LocationForImages) {
+    signale.success(`Will upload images to: ${s3LocationForImages}`);
+  }
   const manager = new APSBeamDetailsChangeNotifierManager({
+    emitterOptions: {
+      s3LocationForImages,
+    },
     watching: ['operationStatus'],
     notificationConfigs: slackWebhookUrls.map((url) => ({
       type: APSBeamDetailsChangeNotificationType.SlackIncomingWebhook,
